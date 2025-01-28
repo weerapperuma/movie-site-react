@@ -37,3 +37,6 @@ button{
   text-align: right;
   cursor: pointer;
 }
+span{
+  font-size: 24px;
+}
