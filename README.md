@@ -1,5 +1,5 @@
 # React + Vite Movie Search App
-
+website deployed in vercle - [Live Demo](https://movie-site-react-6wfm.vercel.app/)
 This project provides a simple and efficient UI for searching movies, displaying trending lists, and managing search data through a custom backend. The app is built using **React**, **Vite**, **TMDB Movie API**, and **Appwrite**.
 
 ## Features:
