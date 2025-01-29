@@ -32,11 +32,27 @@ export const updateSearchCount = async (searchTerm,movie) =>{
                 searchTerm,
                 count:1,
                 movie_id:movie.id,
-                poster_url:`http://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+                    poster_url: movie.poster_path
+                        ? `http://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                        : ''
+                ,
             });
         }
     }catch(e){
         console.error(e);
         throw new Error('Failed to update search count');
+    }
+}
+
+export const getTrendingMovies = async ()=>{
+    try{
+        const result = await database.listDocuments(DATABASE_ID,COLLECTION_ID,[
+            Query.limit(5),
+            Query.orderDesc('count')
+        ])
+        return result.documents;
+    }catch(e){
+        console.error(e);
+        throw new Error('Failed to fetch trending movies');
     }
 }
